@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Heizung;
+use App\fragen;
+use App\Antworten;
 use Illuminate\Http\Request;
 
 class HeizungController extends Controller
@@ -14,7 +16,10 @@ class HeizungController extends Controller
      */
     public function index()
     {
-        //
+        //Fragen sammeln
+        $fragen = fragen::all();
+        $antworten = Antworten::all();
+        return view('heizung.index', ['fragen' => $fragen, 'antworten' => $antworten]);
     }
 
     /**
@@ -39,11 +44,11 @@ class HeizungController extends Controller
     {
         //
         $heizung = new \App\Heizung;
-    
+
         // populate the model with the form data
         $car->make = $request->make;
         $car->model = $request->model;
-    
+
         // save the model to create a new object in the database
         if (!$heizung->save()) {
           $errors = $heizung->getErrors();
@@ -52,11 +57,11 @@ class HeizungController extends Controller
             ->with('errors', $errors)
             ->withInput();
         }
-    
+
         // success!
         return redirect()
           ->action('HeizungController@create')
-          ->with('message', 'Your '. $heizung->make . ' ' 
+          ->with('message', 'Your '. $heizung->make . ' '
                     . $heizung->model . ' has been created!');
     }
 

@@ -1,3 +1,6 @@
+<?php
+  var_dump($heizung);
+ ?>
      <div class="page-header">
         <h1>Heizungsanlagen Offerte</h1>
       </div>
@@ -16,7 +19,7 @@
       </div>
       @endif
 
-      
+
 {!! Form::model($heizung, ['action' => 'HeizungController@store']) !!}
 
     <div class="form-group">
@@ -24,14 +27,14 @@
       {!! Form::radio('baustelle', 'Bestehende Heizugnsanlage', false, ['class' => 'form-control']) !!}
        {!! Form::radio('baustelle', 'Neubau', false, ['class' => 'form-control']) !!}
     </div>
-    
+
     <div class="form-group">
       {!! Form::label('gebaeudetyp', 'Um was für ein Gebäude handelt es sich?') !!}
-      
+
       {!! Form::select('gebaeudetyp', ['Bis 1965' => 'Bis 1965', '1966 – 1990' => '1966 – 1990', 'Ab 1990' => 'Ab 1990', 'Minergie' => 'Minergie' ], null, ['placeholder' => 'Bitte auswählen', 'class' => 'form-control']) !!}
-      
-      
-      
+
+
+
     </div>
 
 

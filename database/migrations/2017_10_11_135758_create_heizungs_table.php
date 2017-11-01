@@ -22,6 +22,7 @@ class CreateHeizungsTable extends Migration
             $table->string('gewuenschteheizung')->nullable();
             $table->string('alterheizung')->nullable();
             $table->string('brennstoffverbrauch')->nullable();
+            $table->string('energienachweis')->nullable();
             $table->string('wohnflaeche')->nullable();
             $table->string('waermeabgabe')->nullable();
             $table->string('abgasfuehrung')->nullable();
