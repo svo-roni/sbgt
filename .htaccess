@@ -1,0 +1,11 @@
+RewriteEngine on
+
+#Setzt alles auf non-www
+RewriteCond %{HTTP_HOST} ^www\.sbgt\.ch [NC]
+RewriteRule ^(.*)$ http://sbgt.ch/$1 [L,R=301]
+
+#Document Root wird auf public gesetzt
+RewriteCond %{HTTP_HOST} ^sbgt.ch$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^sbgt.ch$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]

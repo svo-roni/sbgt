@@ -1,1 +1,0 @@
-also guet nomal.
