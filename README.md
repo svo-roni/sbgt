@@ -1,2 +1,0 @@
-# sbgt
-Ein kleiner Text
